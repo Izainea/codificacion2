@@ -410,74 +410,172 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Load the dataset from the user&#39;s Google Drive</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ifood_df.csv&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Show DataFrame</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/pandas/io/parsers/readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/pandas/io/parsers/readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/miniconda3/lib/python3.11/site-packages/pandas/io/common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;ifood_df.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Marital_Status</th>
+      <th>Kidhome</th>
+      <th>Teenhome</th>
+      <th>Education_Level</th>
+      <th>Income</th>
+      <th>Recency</th>
+      <th>MntWines</th>
+      <th>MntFruits</th>
+      <th>MntMeatProducts</th>
+      <th>MntFishProducts</th>
+      <th>...</th>
+      <th>Customer_Days</th>
+      <th>MntRegularProds</th>
+      <th>NumCatalogPurchases</th>
+      <th>NumDealsPurchases</th>
+      <th>NumStorePurchases</th>
+      <th>NumWebPurchases</th>
+      <th>NumWebVisitsMonth</th>
+      <th>Response</th>
+      <th>Z_CostContact</th>
+      <th>Z_Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Single</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Master</td>
+      <td>74927</td>
+      <td>39</td>
+      <td>156</td>
+      <td>17</td>
+      <td>82</td>
+      <td>18</td>
+      <td>...</td>
+      <td>566</td>
+      <td>293</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Widow</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Master</td>
+      <td>95766</td>
+      <td>22</td>
+      <td>192</td>
+      <td>17</td>
+      <td>101</td>
+      <td>28</td>
+      <td>...</td>
+      <td>3103</td>
+      <td>369</td>
+      <td>1</td>
+      <td>7</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Married</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Graduation</td>
+      <td>59676</td>
+      <td>46</td>
+      <td>50</td>
+      <td>7</td>
+      <td>57</td>
+      <td>46</td>
+      <td>...</td>
+      <td>565</td>
+      <td>192</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>5</td>
+      <td>6</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Married</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Graduation</td>
+      <td>59663</td>
+      <td>2</td>
+      <td>0</td>
+      <td>39</td>
+      <td>0</td>
+      <td>62</td>
+      <td>...</td>
+      <td>1582</td>
+      <td>171</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Single</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Graduation</td>
+      <td>66230</td>
+      <td>42</td>
+      <td>152</td>
+      <td>15</td>
+      <td>69</td>
+      <td>20</td>
+      <td>...</td>
+      <td>2250</td>
+      <td>268</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>4</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 31 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="exploracion-de-datos">
@@ -510,297 +608,297 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Income</th>
+      <th>Marital_Status</th>
       <th>Kidhome</th>
       <th>Teenhome</th>
+      <th>Education_Level</th>
+      <th>Income</th>
       <th>Recency</th>
       <th>MntWines</th>
       <th>MntFruits</th>
       <th>MntMeatProducts</th>
       <th>MntFishProducts</th>
-      <th>MntSweetProducts</th>
-      <th>MntGoldProds</th>
       <th>...</th>
-      <th>marital_Together</th>
-      <th>marital_Widow</th>
-      <th>education_2n Cycle</th>
-      <th>education_Basic</th>
-      <th>education_Graduation</th>
-      <th>education_Master</th>
-      <th>education_PhD</th>
-      <th>MntTotal</th>
+      <th>Customer_Days</th>
       <th>MntRegularProds</th>
-      <th>AcceptedCmpOverall</th>
+      <th>NumCatalogPurchases</th>
+      <th>NumDealsPurchases</th>
+      <th>NumStorePurchases</th>
+      <th>NumWebPurchases</th>
+      <th>NumWebVisitsMonth</th>
+      <th>Response</th>
+      <th>Z_CostContact</th>
+      <th>Z_Revenue</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>20</th>
-      <td>2447.0</td>
+      <td>Married</td>
+      <td>2</td>
       <td>1</td>
+      <td>PhD</td>
+      <td>106540</td>
+      <td>29</td>
       <td>0</td>
-      <td>42</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1725</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>63</td>
+      <td>0</td>
+      <td>63</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>2589</td>
+      <td>229</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1729</td>
-      <td>1728</td>
-      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>5</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>58607.0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>63</td>
-      <td>867</td>
-      <td>0</td>
-      <td>86</td>
+      <td>Single</td>
       <td>0</td>
       <td>0</td>
-      <td>19</td>
+      <td>Graduation</td>
+      <td>59407</td>
+      <td>71</td>
+      <td>108</td>
+      <td>11</td>
+      <td>64</td>
+      <td>18</td>
       <td>...</td>
+      <td>4759</td>
+      <td>223</td>
+      <td>2</td>
+      <td>6</td>
       <td>0</td>
       <td>0</td>
+      <td>3</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>953</td>
-      <td>934</td>
-      <td>1</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>65324.0</td>
+      <td>Single</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
-      <td>384</td>
-      <td>0</td>
-      <td>102</td>
-      <td>21</td>
-      <td>32</td>
-      <td>5</td>
+      <td>Master</td>
+      <td>79053</td>
+      <td>24</td>
+      <td>156</td>
+      <td>17</td>
+      <td>83</td>
+      <td>18</td>
       <td>...</td>
+      <td>3515</td>
+      <td>298</td>
+      <td>5</td>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>5</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>539</td>
-      <td>534</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>40689.0</td>
+      <td>Single</td>
       <td>0</td>
-      <td>1</td>
-      <td>69</td>
-      <td>270</td>
-      <td>3</td>
-      <td>27</td>
-      <td>39</td>
-      <td>6</td>
-      <td>99</td>
+      <td>0</td>
+      <td>PhD</td>
+      <td>88102</td>
+      <td>57</td>
+      <td>156</td>
+      <td>25</td>
+      <td>87</td>
+      <td>31</td>
       <td>...</td>
+      <td>4816</td>
+      <td>318</td>
+      <td>4</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>7</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>345</td>
-      <td>246</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>18589.0</td>
+      <td>Married</td>
       <td>0</td>
+      <td>2</td>
+      <td>Graduation</td>
+      <td>73040</td>
+      <td>46</td>
       <td>0</td>
-      <td>89</td>
-      <td>6</td>
-      <td>4</td>
-      <td>25</td>
-      <td>15</td>
-      <td>12</td>
-      <td>13</td>
+      <td>20</td>
+      <td>83</td>
+      <td>80</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>2020</td>
+      <td>243</td>
+      <td>2</td>
+      <td>4</td>
       <td>1</td>
+      <td>3</td>
+      <td>7</td>
       <td>0</td>
-      <td>0</td>
-      <td>62</td>
-      <td>49</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>53359.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>4</td>
-      <td>173</td>
-      <td>4</td>
-      <td>30</td>
-      <td>3</td>
-      <td>6</td>
-      <td>41</td>
+      <td>Married</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Graduation</td>
+      <td>62137</td>
+      <td>33</td>
+      <td>0</td>
+      <td>47</td>
+      <td>0</td>
+      <td>56</td>
       <td>...</td>
+      <td>1963</td>
+      <td>184</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>7</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>216</td>
-      <td>175</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>38360.0</td>
+      <td>Single</td>
       <td>1</td>
       <td>0</td>
-      <td>26</td>
-      <td>36</td>
-      <td>2</td>
-      <td>42</td>
-      <td>20</td>
-      <td>21</td>
-      <td>10</td>
+      <td>Master</td>
+      <td>69586</td>
+      <td>41</td>
+      <td>70</td>
+      <td>19</td>
+      <td>33</td>
+      <td>30</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>3613</td>
+      <td>187</td>
       <td>1</td>
+      <td>6</td>
+      <td>4</td>
+      <td>4</td>
+      <td>6</td>
       <td>0</td>
-      <td>0</td>
-      <td>121</td>
-      <td>111</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>84618.0</td>
+      <td>Married</td>
+      <td>2</td>
       <td>0</td>
+      <td>Master</td>
+      <td>72888</td>
+      <td>63</td>
       <td>0</td>
-      <td>96</td>
-      <td>684</td>
-      <td>100</td>
-      <td>801</td>
+      <td>37</td>
+      <td>0</td>
       <td>21</td>
-      <td>66</td>
-      <td>0</td>
       <td>...</td>
+      <td>4141</td>
+      <td>112</td>
       <td>0</td>
+      <td>8</td>
       <td>0</td>
+      <td>3</td>
+      <td>8</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1672</td>
-      <td>1672</td>
-      <td>1</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>10979.0</td>
+      <td>Married</td>
       <td>0</td>
+      <td>2</td>
+      <td>Graduation</td>
+      <td>76949</td>
+      <td>51</td>
       <td>0</td>
-      <td>34</td>
-      <td>8</td>
-      <td>4</td>
-      <td>10</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
+      <td>19</td>
+      <td>75</td>
+      <td>79</td>
       <td>...</td>
+      <td>4638</td>
+      <td>211</td>
+      <td>3</td>
+      <td>5</td>
+      <td>3</td>
       <td>0</td>
+      <td>5</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>26</td>
-      <td>22</td>
-      <td>0</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>38620.0</td>
+      <td>Single</td>
       <td>0</td>
       <td>0</td>
-      <td>56</td>
-      <td>112</td>
-      <td>17</td>
-      <td>44</td>
+      <td>Graduation</td>
+      <td>69337</td>
       <td>34</td>
-      <td>22</td>
-      <td>89</td>
+      <td>116</td>
+      <td>13</td>
+      <td>68</td>
+      <td>29</td>
       <td>...</td>
+      <td>1028</td>
+      <td>236</td>
+      <td>3</td>
+      <td>2</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>229</td>
-      <td>140</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>40548.0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>31</td>
-      <td>110</td>
-      <td>0</td>
-      <td>5</td>
+      <td>2</td>
       <td>2</td>
       <td>0</td>
       <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Married</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Graduation</td>
+      <td>43440</td>
+      <td>31</td>
+      <td>0</td>
+      <td>14</td>
+      <td>26</td>
+      <td>55</td>
       <td>...</td>
-      <td>1</td>
+      <td>4991</td>
+      <td>141</td>
+      <td>2</td>
+      <td>8</td>
       <td>0</td>
+      <td>3</td>
+      <td>8</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>117</td>
-      <td>114</td>
-      <td>1</td>
+      <td>3</td>
+      <td>11</td>
     </tr>
   </tbody>
 </table>
-<p>11 rows × 39 columns</p>
+<p>11 rows × 31 columns</p>
 </div></div></div>
 </div>
 <p>Hagamos una descripicón de los datos interesnates, en este caso, la descripción de las columnas: <em><strong>Income</strong></em>, <em><strong>Recency</strong></em>, <em><strong>Kidhome</strong></em> y <em><strong>Teenhome</strong></em>.</p>
@@ -842,57 +940,57 @@ document.write(`
   <tbody>
     <tr>
       <th>count</th>
-      <td>2205.000000</td>
-      <td>2205.000000</td>
-      <td>2205.000000</td>
-      <td>2205.000000</td>
+      <td>10325.000000</td>
+      <td>10325.000000</td>
+      <td>10325.000000</td>
+      <td>10325.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>51622.094785</td>
-      <td>49.009070</td>
-      <td>0.442177</td>
-      <td>0.506576</td>
+      <td>70350.407361</td>
+      <td>37.428087</td>
+      <td>0.443874</td>
+      <td>0.602324</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>20713.063826</td>
-      <td>28.932111</td>
-      <td>0.537132</td>
-      <td>0.544380</td>
+      <td>17114.722006</td>
+      <td>16.064302</td>
+      <td>0.691085</td>
+      <td>0.820666</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>1730.000000</td>
+      <td>6337.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>35196.000000</td>
-      <td>24.000000</td>
+      <td>58632.000000</td>
+      <td>27.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>51287.000000</td>
-      <td>49.000000</td>
+      <td>70277.000000</td>
+      <td>38.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>68281.000000</td>
-      <td>74.000000</td>
+      <td>81808.000000</td>
+      <td>49.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>113734.000000</td>
-      <td>99.000000</td>
+      <td>133233.000000</td>
+      <td>92.000000</td>
       <td>2.000000</td>
       <td>2.000000</td>
     </tr>
@@ -929,19 +1027,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count      2205.000000
-mean      51622.094785
-std       20713.063826
-min        1730.000000
-25%       35196.000000
-50%       51287.000000
-75%       68281.000000
-max      113734.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     10325.000000
+mean      70350.407361
+std       17114.722006
+min        6337.000000
+25%       58632.000000
+50%       70277.000000
+75%       81808.000000
+max      133233.000000
 Name: Income, dtype: float64
 </pre></div>
 </div>
-<img alt="_images/418d13aac14f7d626a01e5d64037e0c4cd80a06bc7d24744beb4f424cae34512.png" src="_images/418d13aac14f7d626a01e5d64037e0c4cd80a06bc7d24744beb4f424cae34512.png" />
-<img alt="_images/4b3a241b95c4006ff5a47a9a752742c8fdd088353701f3f9bf3fe55316e83f1a.png" src="_images/4b3a241b95c4006ff5a47a9a752742c8fdd088353701f3f9bf3fe55316e83f1a.png" />
+<img alt="_images/dca83001e8aaeaacef0a55e6c434cd3b99b48e90211079bfec30a89640b35352.png" src="_images/dca83001e8aaeaacef0a55e6c434cd3b99b48e90211079bfec30a89640b35352.png" />
+<img alt="_images/509e63f7c0fb8412d6ca86e7371be05dd406bef62047438cc04a309a90b0d78b.png" src="_images/509e63f7c0fb8412d6ca86e7371be05dd406bef62047438cc04a309a90b0d78b.png" />
 </div>
 </div>
 <p><strong>Recency:</strong></p>
@@ -965,19 +1063,19 @@ Name: Income, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    2205.000000
-mean       49.009070
-std        28.932111
-min         0.000000
-25%        24.000000
-50%        49.000000
-75%        74.000000
-max        99.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    10325.000000
+mean        37.428087
+std         16.064302
+min          0.000000
+25%         27.000000
+50%         38.000000
+75%         49.000000
+max         92.000000
 Name: Recency, dtype: float64
 </pre></div>
 </div>
-<img alt="_images/5b9055965ac944932d88a13affebfb0af8f7a4ef93af641364bdfec6792c47fd.png" src="_images/5b9055965ac944932d88a13affebfb0af8f7a4ef93af641364bdfec6792c47fd.png" />
-<img alt="_images/d37674005b5b254718e6b23b13946ddfb672c740a743ca116d3e72236cefd510.png" src="_images/d37674005b5b254718e6b23b13946ddfb672c740a743ca116d3e72236cefd510.png" />
+<img alt="_images/41846cd1e0c4524c09b4782fb039350782310617edb387a9ecbde937babfa0a6.png" src="_images/41846cd1e0c4524c09b4782fb039350782310617edb387a9ecbde937babfa0a6.png" />
+<img alt="_images/22ebd854daa884cfcebff3a9579ad9979a0896b47bf1c087ce80b85648924888.png" src="_images/22ebd854daa884cfcebff3a9579ad9979a0896b47bf1c087ce80b85648924888.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -1010,18 +1108,18 @@ Name: Recency, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    2205.000000
-mean        0.442177
-std         0.537132
-min         0.000000
-25%         0.000000
-50%         0.000000
-75%         1.000000
-max         2.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    10325.000000
+mean         0.443874
+std          0.691085
+min          0.000000
+25%          0.000000
+50%          0.000000
+75%          1.000000
+max          2.000000
 Name: Kidhome, dtype: float64
 </pre></div>
 </div>
-<img alt="_images/1411e31589eb7f63528ca554138305abca4167ca9d4b6116385a33c0d46072da.png" src="_images/1411e31589eb7f63528ca554138305abca4167ca9d4b6116385a33c0d46072da.png" />
+<img alt="_images/15cc1aeaa26427aebea55f5d083270880a5d5488127950ad969e78abbfb55c96.png" src="_images/15cc1aeaa26427aebea55f5d083270880a5d5488127950ad969e78abbfb55c96.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Boxplot de Kidhome&#39;)
 </pre></div>
 </div>
@@ -1049,18 +1147,18 @@ Name: Kidhome, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    2205.000000
-mean        0.506576
-std         0.544380
-min         0.000000
-25%         0.000000
-50%         0.000000
-75%         1.000000
-max         2.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    10325.000000
+mean         0.602324
+std          0.820666
+min          0.000000
+25%          0.000000
+50%          0.000000
+75%          1.000000
+max          2.000000
 Name: Teenhome, dtype: float64
 </pre></div>
 </div>
-<img alt="_images/15670aad4007cae36816a28b34da5a25b7dd6d6a516a1efbd7e77a694d19c12d.png" src="_images/15670aad4007cae36816a28b34da5a25b7dd6d6a516a1efbd7e77a694d19c12d.png" />
+<img alt="_images/cd31dd2411511bfd8fd855b622f62149cc5e2e56d508f5b79b4c4a9e611c56e8.png" src="_images/cd31dd2411511bfd8fd855b622f62149cc5e2e56d508f5b79b4c4a9e611c56e8.png" />
 <img alt="_images/3e2154c9e8b730947866c876a347c28ea77f8666565f698846edfd18c73b8ad3.png" src="_images/3e2154c9e8b730947866c876a347c28ea77f8666565f698846edfd18c73b8ad3.png" />
 </div>
 </div>
