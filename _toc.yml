@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: 01_ingenieria_prompts
+- file: 02_primer_cuaderno
+- file: 03_segundo_cuaderno
+- file: 04_tercer_cuaderno
+- file: 05_cuarto_cuaderno 
