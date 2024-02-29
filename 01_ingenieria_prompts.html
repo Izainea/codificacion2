@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Uso de LLM’s en el Ámbito Legal &#8212; Codificación para Derecho</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_ingenieria_prompts';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Primer cuaderno de Jupyter" href="02_primer_cuaderno.html" />
+    <link rel="prev" title="Codificación Avanzada para Abogados" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Codificación para Derecho - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Codificación para Derecho - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Codificación Avanzada para Abogados
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Uso de LLM’s en el Ámbito Legal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_primer_cuaderno.html">Primer cuaderno de Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_segundo_cuaderno.html">Medidas estadísticas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_tercer_cuaderno.html">Visualización de datos con Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_cuarto_cuaderno.html">Manipulación, Limpieza y Exploración de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Izainea/codificacion2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Izainea/codificacion2/issues/new?title=Issue%20on%20page%20%2F01_ingenieria_prompts.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01_ingenieria_prompts.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Uso de LLM’s en el Ámbito Legal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingenieria-de-prompts-para-llm-s">Ingeniería de prompts para LLM’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-es-importante">¿Por qué es Importante?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-basicos">Principios Básicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-en-el-ambito-legal">Aplicaciones en el Ámbito Legal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desafios-y-consideraciones">Desafíos y Consideraciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollar-un-prompt-efectivo">Desarrollar un prompt efectivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#especificidad-y-claridad">1. Especificidad y claridad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcionar-contexto">2. Proporcionar Contexto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-de-ejemplos">3. Uso de Ejemplos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concision-y-completitud">4. Concisión y Completitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-y-experimentacion">5. Iteración y Experimentación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evitar-sesgos-y-suposiciones">6. Evitar Sesgos y Suposiciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-creativo-de-los-prompts">7. Uso Creativo de los Prompts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-de-la-longitud-del-prompt">8. Ajuste de la Longitud del Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicitar-el-formato-de-respuesta-deseado">9. Explicitar el Formato de Respuesta Deseado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-critica-de-las-respuestas">10. Evaluación Crítica de las Respuestas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="uso-de-llm-s-en-el-ambito-legal">
+<h1>Uso de LLM’s en el Ámbito Legal<a class="headerlink" href="#uso-de-llm-s-en-el-ambito-legal" title="Link to this heading">#</a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>Los Modelos de Lenguaje (LM’s), y en particular los de Gran Escala (LLM’s), como GPT-3 de OpenAI, representan una revolución en el procesamiento del lenguaje natural. Estos modelos predictivos tienen la capacidad de generar texto, traducir idiomas, corregir errores ortográficos y mucho más, basándose en la probabilidad de secuencias de palabras. Su aplicación trasciende múltiples dominios, ofreciendo soluciones innovadoras a problemas complejos de una manera eficiente y efectiva.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El funcionamiento de los LM es bastante sencillo de imaginar, aunque su implementación es extremadamente compleja. En esencia, estos modelos son capaces de predecir la siguiente palabra en una secuencia de texto, basándose en la probabilidad de que una palabra siga a otra. Aunque esto parece simple, la cantidad de datos y cálculos necesarios para hacerlo es inmensa, lo que ha requerido el desarrollo de técnicas y algoritmos muy avanzados.</p>
+<p>Por ejemplo, si un modelo ha sido entrenado con un gran corpus de texto en español, y se le da la secuencia “El presidente de la empresa PAPALOTES es” es muy probable que el modelo prediga la palabra “Juan”, ya que es el nombre más común en el contexto de una empresa. Sin embargo, si la secuencia es “El presidente de la empresa PAPALOTES son”, el modelo probablemente prediga “los”, ya que es la forma correcta del verbo “ser” en tercera persona del plural.</p>
+<p>Estas predicciones se basan en la probabilidad de que una palabra siga a otra, y son el resultado de un proceso de entrenamiento que expone al modelo a <strong>MILLONES</strong> de ejemplos de texto, permitiéndole aprender patrones y reglas gramaticales de manera automática.</p>
+</div>
+<p>En el ámbito legal, los LLM’s han emergido como herramientas poderosas, capaces de automatizar tareas repetitivas y tediosas, como la redacción de contratos, revisión de documentos legales, generación de informes, y redacción de opiniones legales. Lejos de ser vistos como competidores, estos modelos se presentan como aliados estratégicos que permiten a los abogados concentrarse en aspectos más analíticos y creativos de su trabajo, mejorando la eficiencia y la calidad del servicio ofrecido.</p>
+<p>Además de la automatización de tareas, un aspecto revolucionario de los LLM’s es su capacidad para ser “entrenados” mediante la técnica conocida como ingeniería de prompts. Esta técnica implica la creación cuidadosa de instrucciones o preguntas que guían al modelo para generar respuestas o contenidos específicos, ajustándose a las necesidades particulares del usuario. En el contexto legal, esto significa que los abogados pueden personalizar los resultados del modelo para adaptarse a los requerimientos legales específicos, normativas, y estilos de redacción preferidos, maximizando así la relevancia y precisión de los documentos generados.</p>
+<p>Este curso explorará cómo los abogados pueden aplicar la ingeniería de prompts para sacar el máximo provecho de los LLM’s, transformando no solo la forma en que se realizan ciertas tareas legales, sino también cómo se concibe la práctica legal en la era digital. A través de una serie de ejemplos prácticos, tutoriales, y ejercicios, los participantes aprenderán a diseñar prompts efectivos, adaptar los modelos a diferentes contextos legales, y evaluar críticamente los resultados para asegurar su aplicabilidad y conformidad legal.</p>
+<p>Al final de este curso, los abogados no solo verán a los LLM’s como herramientas útiles, sino como compañeros esenciales en su práctica diaria, capaces de potenciar su creatividad, eficiencia, y precisión en el trabajo legal.</p>
+</section>
+<section id="ingenieria-de-prompts-para-llm-s">
+<h2>Ingeniería de prompts para LLM’s<a class="headerlink" href="#ingenieria-de-prompts-para-llm-s" title="Link to this heading">#</a></h2>
+<p>El concepto de <strong>Ingeniería de Prompts</strong> (Prompt Engineering) es fundamental cuando trabajamos con Modelos de Lenguaje de Gran Escala (LLM’s), como GPT-3 de OpenAI. Se refiere al proceso de diseñar y refinar la manera en que formulamos nuestras preguntas o instrucciones a estos modelos para obtener respuestas más precisas, relevantes y útiles. En esencia, es el arte de comunicarse eficazmente con la IA para maximizar su potencial.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El término <strong>Ingeniería de prompts</strong> se volvió relevante en 2020 con la publicación de GPT-3, un modelo de lenguaje de gran escala que demostró una capacidad sin precedentes para generar texto coherente y contextualmente relevante. A diferencia de sus predecesores, GPT-3 no requiere de tareas de ajuste o entrenamiento específico para realizar una amplia variedad de tareas, desde traducción de idiomas hasta generación de código. Sin embargo, para obtener resultados precisos y útiles, es necesario formular las preguntas o instrucciones de manera específica y contextualizada, lo que llevó a la popularización del término <strong>Ingeniería de prompts</strong>.</p>
+</div>
+<section id="por-que-es-importante">
+<h3>¿Por qué es Importante?<a class="headerlink" href="#por-que-es-importante" title="Link to this heading">#</a></h3>
+<p>Los LLM’s, a pesar de su avanzada capacidad para generar texto coherente y contextualmente apropiado, no poseen una comprensión del mundo ni de las intenciones del usuario de la misma manera que lo haría un humano. La precisión y utilidad de sus respuestas dependen en gran medida de cómo se formula la solicitud. Aquí es donde entra la ingeniería de prompts: permite guiar al modelo hacia el contexto deseado y la forma específica de respuesta que buscamos.</p>
+</section>
+<section id="principios-basicos">
+<h3>Principios Básicos<a class="headerlink" href="#principios-basicos" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Claridad y Especificidad:</strong> Un prompt debe ser claro y específico en lo que se solicita. La ambigüedad puede llevar a respuestas inesperadas o irrelevantes.</p></li>
+<li><p><strong>Contextualización:</strong> Proveer contexto suficiente en el prompt ayuda al modelo a generar respuestas más precisas y pertinentes.</p></li>
+<li><p><strong>Iteración:</strong> La ingeniería de prompts es un proceso iterativo. Basándose en las respuestas obtenidas, se refinan los prompts para mejorar los resultados.</p></li>
+<li><p><strong>Creatividad:</strong> A veces, formular prompts creativos o no convencionales puede resultar en hallazgos interesantes y respuestas útiles.</p></li>
+</ol>
+</section>
+<section id="aplicaciones-en-el-ambito-legal">
+<h3>Aplicaciones en el Ámbito Legal<a class="headerlink" href="#aplicaciones-en-el-ambito-legal" title="Link to this heading">#</a></h3>
+<p>En el contexto legal, la ingeniería de prompts puede ser particularmente poderosa. Por ejemplo:</p>
+<ul class="simple">
+<li><p><strong>Generación de Documentos:</strong> Se pueden diseñar prompts que guíen al modelo para generar contratos, informes legales, y otros documentos, especificando el estilo, formato, y aspectos legales a incluir.</p></li>
+<li><p><strong>Análisis de Texto:</strong> Los prompts pueden dirigir al modelo para analizar legislación, sentencias judiciales, o contratos, extrayendo información relevante o realizando comparaciones legales.</p></li>
+<li><p><strong>Asesoramiento:</strong> Mediante prompts bien construidos, los LLM’s pueden proporcionar asesoramiento preliminar sobre cuestiones legales, basándose en descripciones de situaciones o consultas específicas.</p></li>
+</ul>
+</section>
+<section id="desafios-y-consideraciones">
+<h3>Desafíos y Consideraciones<a class="headerlink" href="#desafios-y-consideraciones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fiabilidad:</strong> Es crucial evaluar críticamente la precisión y fiabilidad de las respuestas generadas por los LLM’s, especialmente en aplicaciones legales donde las consecuencias pueden ser significativas.</p></li>
+<li><p><strong>Ética y Privacidad:</strong> La formulación de prompts debe tener en cuenta consideraciones éticas y de privacidad, especialmente al manejar información sensible o personal.</p></li>
+</ul>
+</section>
+</section>
+<section id="desarrollar-un-prompt-efectivo">
+<h2>Desarrollar un prompt efectivo<a class="headerlink" href="#desarrollar-un-prompt-efectivo" title="Link to this heading">#</a></h2>
+<p>Desarrollar un prompt efectivo para un LLM es un proceso que requiere de creatividad, precisión, y comprensión del contexto en el que se aplicará. A continuación, se presentan algunos pasos y consideraciones clave para diseñar prompts efectivos:</p>
+<section id="especificidad-y-claridad">
+<h3>1. Especificidad y claridad<a class="headerlink" href="#especificidad-y-claridad" title="Link to this heading">#</a></h3>
+<p>Cuanto más específico sea el prompt, más probable será obtener una respuesta precisa. Esto es especialmente importante para tareas complejas o cuando se busca información muy detallada.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recuerda, estos LLM’s son copilotos en el desarrollo de nuestras tareas, son muy inteligentes pero inexpertos y debemos ser muy precisos con las solicitudes que les entregamos.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Genera un contrato de arrendamiento.”</p>
+<p>– Ejemplo correcto: “Genera un contrato de arrendamiento para una propiedad residencial en la Ciudad de México, siguiendo las leyes de arrendamiento vigentes en el país.”</p>
+</div>
+</section>
+<section id="proporcionar-contexto">
+<h3>2. Proporcionar Contexto<a class="headerlink" href="#proporcionar-contexto" title="Link to this heading">#</a></h3>
+<p>Incluir información relevante en el prompt ayuda al modelo a comprender mejor el contexto de la solicitud, lo que mejora la precisión de la respuesta generada.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aportar contexto es como darle al modelo una lente a través de la cual enfocar su “visión” de nuestra pregunta, afinando su “entendimiento” hacia el área específica de nuestro interés.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Describe las implicaciones legales.”</p>
+<p>– Ejemplo correcto: “Describe las implicaciones legales de utilizar software sin licencia en una empresa tecnológica ubicada en California, bajo la Ley de Derechos de Autor de los Estados Unidos.”</p>
+</div>
+</section>
+<section id="uso-de-ejemplos">
+<h3>3. Uso de Ejemplos<a class="headerlink" href="#uso-de-ejemplos" title="Link to this heading">#</a></h3>
+<p>Incorporar ejemplos en el prompt puede dirigir al modelo hacia el tipo de respuesta esperada, tanto en formato como en contenido.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dar ejemplos al modelo es como mostrarle una fotografía de lo que esperamos obtener; sirve como un modelo a seguir o una meta clara hacia la cual apuntar.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Escribe un resumen del caso.”</p>
+<p>– Ejemplo correcto: “Escribe un resumen del caso como si fuera para una publicación en un blog jurídico, enfocándote en los argumentos clave y el veredicto final, similar al resumen del caso ‘Roe vs. Wade’ publicado en el blog ‘Derecho Innovador’.”</p>
+</div>
+</section>
+<section id="concision-y-completitud">
+<h3>4. Concisión y Completitud<a class="headerlink" href="#concision-y-completitud" title="Link to this heading">#</a></h3>
+<p>Mantener un equilibrio entre ser breve y proporcionar todos los detalles necesarios es crucial para evitar confusiones y asegurar respuestas completas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ser conciso pero completo es como dar instrucciones claras y directas a un navegador GPS; necesitamos proporcionarle todos los puntos de referencia esenciales sin sobrecargarlo con información irrelevante.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Analiza este documento legal.”</p>
+<p>– Ejemplo correcto: “Analiza este documento legal, identificando las cláusulas de responsabilidad limitada y compáralas con las estándar en contratos de servicios de software.”</p>
+</div>
+</section>
+<section id="iteracion-y-experimentacion">
+<h3>5. Iteración y Experimentación<a class="headerlink" href="#iteracion-y-experimentacion" title="Link to this heading">#</a></h3>
+<p>La ingeniería de prompts es un proceso iterativo. Refinar los prompts basándose en respuestas previas puede mejorar significativamente los resultados.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Iterar con nuestros prompts es como perfeccionar una receta; cada ajuste nos acerca más al sabor deseado, basándonos en los resultados de nuestros intentos anteriores.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Proporciona un análisis de mercado.”</p>
+<p>– Ejemplo correcto: “Proporciona un análisis detallado del mercado de tecnología wearable en 2023, incluyendo tendencias, principales competidores y proyecciones de crecimiento, basado en el informe de mercado más reciente.”</p>
+</div>
+<p>Cada uno de estos principios contribuye a mejorar la interacción con los modelos de lenguaje, permitiendo obtener resultados más alineados con las expectativas y necesidades específicas del usuario.</p>
+</section>
+<section id="evitar-sesgos-y-suposiciones">
+<h3>6. Evitar Sesgos y Suposiciones<a class="headerlink" href="#evitar-sesgos-y-suposiciones" title="Link to this heading">#</a></h3>
+<p>Es vital formular preguntas de manera que se minimice la introducción de sesgos personales o culturales, lo cual puede influir en la neutralidad y objetividad de las respuestas generadas por el modelo.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Evitar sesgos en los prompts es equivalente a proporcionar una educación equilibrada y diversa; fomenta la generación de respuestas imparciales y justas.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Escribe un informe sobre los peligros de la inteligencia artificial, asumiendo que llevará al desempleo masivo.”</p>
+<p>– Ejemplo correcto: “Escribe un informe que evalúe los impactos potenciales de la inteligencia artificial en el mercado laboral, considerando tanto los riesgos de desempleo como las oportunidades de creación de nuevos empleos.”</p>
+</div>
+</section>
+<section id="uso-creativo-de-los-prompts">
+<h3>7. Uso Creativo de los Prompts<a class="headerlink" href="#uso-creativo-de-los-prompts" title="Link to this heading">#</a></h3>
+<p>La ingeniería de prompts no solo debe ser precisa y clara, sino también creativa, especialmente cuando se buscan soluciones innovadoras o se explora el potencial del modelo para generar ideas o conceptos novedosos.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La creatividad en los prompts actúa como una chispa que enciende la imaginación del modelo, permitiéndole explorar soluciones y respuestas fuera de los caminos tradicionales.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Dame ideas para un negocio.”</p>
+<p>– Ejemplo correcto: “Genera una lista de ideas de negocio innovadoras que combinen tecnología blockchain con sostenibilidad ambiental para el mercado latinoamericano.”</p>
+</div>
+</section>
+<section id="ajuste-de-la-longitud-del-prompt">
+<h3>8. Ajuste de la Longitud del Prompt<a class="headerlink" href="#ajuste-de-la-longitud-del-prompt" title="Link to this heading">#</a></h3>
+<p>La longitud del prompt debe ser ajustada según la complejidad de la solicitud. Prompts demasiado largos o cortos pueden afectar la precisión de las respuestas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ajustar la longitud del prompt es como calibrar un telescopio; dependiendo de lo que queramos observar, necesitaremos ajustar nuestro enfoque para obtener la imagen más clara posible.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Describe cómo los cambios en la legislación ambiental han afectado a las empresas.”</p>
+<p>– Ejemplo correcto: “Describe en un párrafo cómo la Ley General del Equilibrio Ecológico y la Protección al Ambiente en México ha impactado las operaciones de empresas multinacionales desde su implementación en 1988.”</p>
+</div>
+</section>
+<section id="explicitar-el-formato-de-respuesta-deseado">
+<h3>9. Explicitar el Formato de Respuesta Deseado<a class="headerlink" href="#explicitar-el-formato-de-respuesta-deseado" title="Link to this heading">#</a></h3>
+<p>Especificar el formato en el que se desea recibir la respuesta ayuda al modelo a estructurar su generación de texto de manera acorde, ya sea en forma de lista, ensayo, diálogo, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Solicitar un formato específico es como dar instrucciones a un artista sobre el medio en el que queremos nuestra obra; nos asegura que el resultado final se alinee con nuestras expectativas estéticas o funcionales.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: “Proporciona ejemplos de tecnologías emergentes.”</p>
+<p>– Ejemplo correcto: “Enumera cinco tecnologías emergentes que están transformando la industria financiera, incluyendo una breve descripción de cada una.”</p>
+</div>
+</section>
+<section id="evaluacion-critica-de-las-respuestas">
+<h3>10. Evaluación Crítica de las Respuestas<a class="headerlink" href="#evaluacion-critica-de-las-respuestas" title="Link to this heading">#</a></h3>
+<p>Es esencial evaluar críticamente las respuestas generadas por el modelo para asegurar su relevancia, precisión y aplicabilidad al contexto en el que se utilizarán.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Evaluar críticamente las respuestas es como realizar un control de calidad en un proceso de producción; nos aseguramos de que el producto final cumpla con nuestros estándares antes de presentarlo al mundo.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>– Ejemplo incorrecto: Aceptar sin revisión un resumen legal generado por el modelo para un caso de patente.</p>
+<p>– Ejemplo correcto: Comparar el resumen legal generado por el modelo con las fuentes originales y la legislación aplicable para asegurar su precisión y completitud antes de utilizarlo en un argumento legal.</p>
+</div>
+<p>Siguiendo estos principios y ejemplos, los usuarios pueden mejorar significativamente la forma en que interactúan con los modelos de lenguaje, optimizando la calidad de las respuestas obtenidas para satisfacer sus necesidades específicas. La clave está en la experimentación continua y la adaptación basada en el aprendizaje obtenido de las interacciones anteriores.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Codificación Avanzada para Abogados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_primer_cuaderno.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Primer cuaderno de Jupyter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingenieria-de-prompts-para-llm-s">Ingeniería de prompts para LLM’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-es-importante">¿Por qué es Importante?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-basicos">Principios Básicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-en-el-ambito-legal">Aplicaciones en el Ámbito Legal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desafios-y-consideraciones">Desafíos y Consideraciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollar-un-prompt-efectivo">Desarrollar un prompt efectivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#especificidad-y-claridad">1. Especificidad y claridad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcionar-contexto">2. Proporcionar Contexto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-de-ejemplos">3. Uso de Ejemplos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concision-y-completitud">4. Concisión y Completitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-y-experimentacion">5. Iteración y Experimentación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evitar-sesgos-y-suposiciones">6. Evitar Sesgos y Suposiciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-creativo-de-los-prompts">7. Uso Creativo de los Prompts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-de-la-longitud-del-prompt">8. Ajuste de la Longitud del Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicitar-el-formato-de-respuesta-deseado">9. Explicitar el Formato de Respuesta Deseado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-critica-de-las-respuestas">10. Evaluación Crítica de las Respuestas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Isaac Zainea
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
